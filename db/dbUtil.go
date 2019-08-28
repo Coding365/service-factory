@@ -1,21 +1,14 @@
-package init
+package db
 
 import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 )
 
-//func init() {
-//	maxIdle := 30
-//	maxConn := 30
-//	orm.RegisterDriver("mysql", orm.DRMySQL)
-//	orm.RegisterDataBase("default", "mysql", "root:wyx123@tcp(localhost:3306)/sf?charset=utf8",maxIdle,maxConn)
-//	orm.SetMaxIdleConns("default", 30)
-//	orm.SetMaxOpenConns("default", 30)
-//	orm.RegisterModel(new(models.SvInfo))
-//}
-
-func init() {
-	db, _ := gorm.Open("mysql", "root:wyx123@(127.0.0.1:3306)/sf?charset=utf8&parseTime=True&loc=Local")
-	defer db.Close()
+func GetMySqlBb() *gorm.DB {
+	_db, err := gorm.Open("mysql", "root:wyx123@(127.0.0.1:3306)/sf?charset=utf8&parseTime=True&loc=Local")
+	if err != nil {
+		panic("连接数据库失败")
+	}
+	return _db
 }
