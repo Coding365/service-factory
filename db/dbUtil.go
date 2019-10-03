@@ -6,7 +6,7 @@ import (
 )
 
 func GetMySqlBb() *gorm.DB {
-	_db, err := gorm.Open("mysql", "root:wyx123@(127.0.0.1:3306)/sf?charset=utf8&parseTime=True&loc=Local")
+	_db, err := gorm.Open("mysql", "root:Wyx1@jdyz@(127.0.0.1:3306)/sf?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		panic("连接数据库失败")
 	}
