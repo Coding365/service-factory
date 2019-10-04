@@ -1,12 +1,15 @@
 package db
 
 import (
+	"github.com/astaxie/beego"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 )
 
 func GetMySqlBb() *gorm.DB {
-	_db, err := gorm.Open("mysql", "root:Wyx1@jdyz@(127.0.0.1:3306)/sf?charset=utf8&parseTime=True&loc=Local")
+	dbType := beego.AppConfig.String("dbType")
+	dbConn := beego.AppConfig.String("dbConn")
+	_db, err := gorm.Open(dbType, dbConn)
 	if err != nil {
 		panic("连接数据库失败")
 	}
