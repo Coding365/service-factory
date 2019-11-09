@@ -8,23 +8,13 @@
 package routers
 
 import (
-	"service-factory/controllers"
-
 	"github.com/astaxie/beego"
+	"service-factory/module/svc/controllers"
 )
 
 func init() {
-	ns := beego.NewNamespace("/v1",
-		beego.NSNamespace("/object",
-			beego.NSInclude(
-				&controllers.ObjectController{},
-			),
-		),
-		beego.NSNamespace("/user",
-			beego.NSInclude(
-				&controllers.UserController{},
-			),
-		),
-	)
-	beego.AddNamespace(ns)
+	beego.Router("/svInfo", &controllers.SvInfoController{})
+	beego.Router("/svInfo/:id", &controllers.SvInfoController{})
+	beego.Router("/svInfo/list", &controllers.SvInfoController{}, "get:GetList")
+	beego.Router("/k8s/test", &controllers.K8sController{}, "get:TestK8s")
 }

@@ -12,7 +12,7 @@ import (
 //	orm.RegisterDataBase("default", "mysql", "root:wyx123@tcp(localhost:3306)/sf?charset=utf8",maxIdle,maxConn)
 //	orm.SetMaxIdleConns("default", 30)
 //	orm.SetMaxOpenConns("default", 30)
-//	orm.RegisterModel(new(models.SvInfo))
+//	orm.RegisterModel(new(entity.SvInfo))
 //}
 
 func init() {

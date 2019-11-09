@@ -1,14 +1,14 @@
 package main
 
 import (
-	"service-factory/controllers"
-	_ "service-factory/routers"
+	"service-factory/module/svc/controllers"
+	_ "service-factory/module/svc/routers"
 
 	"github.com/astaxie/beego"
 
 	_ "service-factory/init"
 
-	_ "service-factory/models"
+	_ "service-factory/module/svc/entity"
 )
 
 func init() {
